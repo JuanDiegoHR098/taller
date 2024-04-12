@@ -98,3 +98,30 @@ def desviacion_estandar(x):
         except ValueError:
             print("Error: No se puede hacer la desviacion en ese eje, ingrese un eje valido")
 
+#8.) Buscar en Kaggle un archivo .csv relacionadas con alguna patología, descargar y hacer 
+# funciones como las propuestas en el ítem anterior, pero implementándolas usando Pandas 
+# y que permitan tambien elegir columnas.
+
+def cargar(ruta):
+    data= pd.read_csv(ruta)
+    return data
+
+def calcular_promedio(data, columna):
+    promedio= data[columna].mean()
+    return promedio
+
+def filtrar_datos(data, columna, valor):
+    datos_filtrados = data[data[columna] > valor]
+    return datos_filtrados
+
+
+def visualizar_grafico(datos, columna_x, columna_y):
+    plt.scatter(datos[columna_x], datos[columna_y])
+    plt.xlabel(columna_x)
+    plt.ylabel(columna_y)
+    plt.title("Gráfico de dispersión")
+    plt.show()
+
+m=cargar("Patologias Ray X\pacientesRayosX.csv")
+promedio= calcular_promedio(m,"EdadPaciente")
+print(promedio)
