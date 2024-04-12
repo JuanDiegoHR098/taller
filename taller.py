@@ -14,3 +14,12 @@ y= np.random.random((30,40,10,100))
 
 q= y[:,:,:,10].copy
 print(q.ndim)
+
+
+# 3. De la matriz 3D, muestra todos los atributos propios de dicha matriz , dimensión, tamaño, 
+# etc..
+
+w=q.shape
+e=q.size
+r= q.dtype
+t= q.ndim
